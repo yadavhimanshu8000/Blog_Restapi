@@ -241,7 +241,7 @@ class product_view(APIView):
         
     def get(self,request,pk,format=None):
         views = self.get_object(pk)
-        serializer = products_serializer(views,many=True)
+        serializer = products_serializer(views)
         return Response(serializer.data)
     
     def put(self,request,pk,format=None):
