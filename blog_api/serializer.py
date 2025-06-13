@@ -1,36 +1,38 @@
 from rest_framework import serializers
-from blog_api.models import *
+from .models import Countries, User, Merchants, Order, order_item, products
 
-class Countriesserializer(serializers.ModelSerializer):
+
+class CountriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Countries
-        fields = '__all__'
-        
-class Userserializer(serializers.ModelSerializer):
+        fields = ['name', 'continent_name']
+
+
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
-        
-class merchantsserializer(serializers.ModelSerializer):
+        fields = ['full_name', 'email', 'gender', 'date_of_birth', 'country_code']
+
+
+class MerchantsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Merchants
-        fields = '__all__'
-        
-class ordersserializer(serializers.ModelSerializer):
+        fields = [ 'merchant_name', 'admin_id', 'country_code']
+
+
+class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = '__all__'
-        
-class order_item_serializer(serializers.ModelSerializer):
+        fields = ['user_id', 'status']
+
+
+class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = order_item
-        fields = '__all__'
-        
-class products_serializer(serializers.ModelSerializer):
+        fields = ['order_id', 'product_id', 'quantity']
+
+
+class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = products
-        fields = "__all__"
-        
-        
-        
-        
+        fields = ['merchants_id', 'name', 'price']
