@@ -38,12 +38,6 @@ urlpatterns = [
     path('order_item_get/<int:pk>/',Orderview.as_view()),
     
     path('production/',Products_api.as_view()),
-    path('production_get/<int:pk>/',product_view.as_view()),
-    
-    
-  
-    
-    
-   
+    path('production_get/<int:pk>/',product_view.as_view()),  
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
